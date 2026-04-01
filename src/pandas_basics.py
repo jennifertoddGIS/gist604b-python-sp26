@@ -20,7 +20,7 @@ import os
 # =============================================================================
 # FUNCTION 1: LOAD AND EXPLORE GIS DATA
 # =============================================================================
-
+file_path = "/workspaces/gist604b-python-sp26/data/weather_stations.csv"
 def load_and_explore_gis_data(file_path):
     """
     Load a CSV file and display comprehensive information about the dataset.
@@ -41,15 +41,27 @@ def load_and_explore_gis_data(file_path):
         ...
     """
     
-    # TODO: Print a header to show what function is running
-    # TODO: Use print("=" * 50) and print("LOADING AND EXPLORING GIS DATA")
+    # TODO Print a header to show what function is running
+    # TODO Use print("=" * 50) and print("LOADING AND EXPLORING GIS DATA")
+    print("=" * 50)
+    print("LOADING AND EXPLORING GIS DATA")
     
-    # TODO: Print the file path being loaded
-    # TODO: Use print(f"Loading data from: {file_path}")
+    # TODO Print the file path being loaded
+    # TODO Use print(f"Loading data from: {file_path}")
+    print(f"Loading data from: {file_path}")
     
-    # TODO: Try to load the CSV file using pd.read_csv()
-    # TODO: Wrap in try/except to handle missing files gracefully
-    # TODO: If file doesn't exist, print error and return None
+    # TODO Try to load the CSV file using pd.read_csv()
+    # TODO Wrap in try/except to handle missing files gracefully
+    # TODO If file doesn't exist, print error and return None
+    try:
+        dataframe = pd.read_csv(file_path)
+        print("File loaded successfully!")
+        print(f"Loaded: {file_path}")
+    except FileNotFoundError:
+        print(f"File not found: {file_path}")
+        print("Check the file path and confirm the dataset exists in the data folder.")
+    except Exception as e:
+        print(f"Error loading file: {e}")
     
     # TODO: Print the shape of the DataFrame (rows, columns)
     # TODO: Use df.shape to get a tuple like (150, 6)
